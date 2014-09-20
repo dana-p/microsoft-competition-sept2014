@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class emails {
+	public static void main(String [ ] args) throws UnsupportedEncodingException, FileNotFoundException
+	{
+		FileInputStream inFile1 = null;
+		try {
+			File file = new File("input.txt"); 
+			inFile1 = new FileInputStream(file, "UTF-8");
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		List<String> tokens = new ArrayList<String>();
+		while (inFile1.hasNext()) {
+		    tokens.add(inFile1.nextLine());
+		}
+		String[] input_lines = tokens.toArray(new String[0]);
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(inFile1, "UTF-8")); 
+		
+		Writer w = new OutputStreamWriter(
+				   new FileOutputStream("x.txt"), "UTF-8");
+		
+		System.out.println(input_lines.length); 
+		
+		for (int i = 0; i < input_lines.length; i++)
+		{
+			System.out.println(i); 
+			System.out.println(input_lines[i]); 
+			String outputString = "";
+			char[] emailChar = input_lines[i].toCharArray();
+			System.out.println(i); 
+			for (int j = 0; j < emailChar.length; ++j)
+			{
+				System.out.println(j); 
+				if ((int)(emailChar[j])>=33 && (int)(emailChar[j])<=126)
+					outputString += emailChar[j]; 
+			}
+			System.out.println(outputString); 
+		}
+		
+ 
+	}
+	
+}

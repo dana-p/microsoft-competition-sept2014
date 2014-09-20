@@ -1,0 +1,58 @@
+
+public class Unreacheable {
+	public static void main(String [ ] args)
+	{
+		
+		String input = "NEXT\n" +
+					   "NEXT\n" +
+					   "GOTO 5\n" +
+					   "NEXT\n" +
+					   "GOTO 1\n" +
+					   "NEXT";
+		//Create array of input 
+		String[] split_input = input.split("\n"); 
+		Boolean []checked = new Boolean[split_input.length]; 
+		//Create matching array, but with booleans
+		//Go through initial input and count 
+		Boolean not_finished = true; 
+		String currString = split_input[0]; 
+		int currLine = 0; 
+		checked[0] = true; 
+		for (int i = 1; i < checked.length; i++)
+			checked[i] = false; 
+		System.out.println(split_input); 
+		while(not_finished)
+		{
+			
+			if (currString.equals("NEXT"))
+			{
+				currLine++;
+				if (currLine == checked.length)
+				{
+					not_finished = false;
+					break; 
+				}
+				if (checked[currLine] == true)
+					not_finished = false;  
+				checked[currLine] = true; 
+				currString = split_input[currLine]; 
+				System.out.println("currline" + currLine); 
+			}
+			if((currString.split(" ")[0]).equals("GOTO")){
+				int lineToJumpTo = Integer.parseInt(currString.split(" ")[1])-1; 
+				currLine = lineToJumpTo; 
+				if (checked[currLine] == true)
+					not_finished = false; 
+				checked[currLine] = true; 
+				currString = split_input[currLine]; 
+				System.out.println("currline" + currLine); 
+			}
+		}
+		
+		for (int i = 0; i < checked.length; i++)
+			if (checked[i] == false)
+				System.out.println(i+1);
+ 
+	}
+	
+}

@@ -1,0 +1,22 @@
+
+public class Unreacheable {
+	public static void main(String [ ] args)
+	{
+		
+		String input = "NEXT\n" +
+					   "NEXT\n" +
+					   "GOTO 5\n" +
+					   "NEXT\n" +
+					   "GOTO 1\n" +
+					   "NEXT";
+		//Create array of input 
+		String[] split_input = input.split("\n"); 
+		Boolean []checked = new Boolean[](split_input.length); 
+		//Create matching array, but with booleans
+		//Go through initial input and count 
+		while()
+					   
+		System.out.println("hey"); 
+	}
+	
+}

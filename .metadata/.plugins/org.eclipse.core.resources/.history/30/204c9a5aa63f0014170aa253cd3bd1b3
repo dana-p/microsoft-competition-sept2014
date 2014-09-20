@@ -1,0 +1,41 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class emails {
+	public static void main(String [ ] args)
+	{
+		Scanner inFile1 = null;
+		try {
+			inFile1 = new Scanner(new File("input.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		List<String> tokens = new ArrayList<String>();
+		while (inFile1.hasNext()) {
+		    tokens.add(inFile1.nextLine());
+		}
+		String[] input_lines = tokens.toArray(new String[0]);
+		String[] output_lines = new String[input_lines.length]; 
+		
+		for (int i = 0; i < input_lines.length; i++)
+		{
+			String outputString = "";
+			char[] emailChar = input_lines[i].toCharArray();
+			for (int j = 0; j < emailChar.length; ++j)
+			{
+				if ((int)(emailChar[j])>=33 && (int)(emailChar[j])<=126)
+					outputString += emailChar[j]; 
+			}
+			System.out.println(outputString); 
+		}
+		
+ 
+	}
+	
+}

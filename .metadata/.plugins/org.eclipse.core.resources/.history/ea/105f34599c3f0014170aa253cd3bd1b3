@@ -1,0 +1,18 @@
+
+public class Unreacheable {
+	public static void main(String [ ] args)
+	{
+		
+		String input = "NEXT\n" +
+					   "NEXT\n" +
+					   "GOTO 5\n" +
+					   "NEXT\n" +
+					   "GOTO 1\n" +
+					   "NEXT"
+		//go through input
+		while()
+					   
+		System.out.println("hey"); 
+	}
+	
+}
