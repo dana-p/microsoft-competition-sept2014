@@ -1,3 +1,8 @@
-"Calculate", "Acute Call"
-"Drop Cue" , "Cued Pro"
-"carE Not", "raCe On"
+NEXT
+GOTO 4
+NEXT
+NEXT
+GOTO 3
+NEXT
+NEXT
+NEXT
