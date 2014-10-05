@@ -30,25 +30,31 @@ public class emails {
 		    
 		    char[] emailChar = str.toCharArray();
 		    String outputString = "";
+		    String atTheEnd = ""; 
 			for (int j = 0; j < emailChar.length; ++j)
 			{
 				if ((int)(emailChar[j])>=33 && (int)(emailChar[j])<=126)
 					outputString += (emailChar[j]); 
 				else {
-					outputString += "+" + Integer.toString(j) + "?"; 
-					byte[] utf8 = ( String.valueOf(emailChar[j])).getBytes("UTF-8");
-					for (int k = 0; k < utf8.length; k++)
-						outputString += (char)utf8[k]; 
-					outputString += emailChar[j]; 
+					//Add the char location 
+					outputString += "+" + Integer.toString(j); 
+					//Get Unicode value of specified character 
+					int utf8 = Character.codePointAt(emailChar, j);
+					//Get hex value of unicode 
+					outputString += Integer.toHexString(utf8); 
+					
+					//The replaced weird characters are to be placed after the string was
+					//Fully converted
+					atTheEnd += emailChar[j]; 
 				}
 			}
+			outputString += " " + atTheEnd; 
 			out.append(outputString).append("\r\n");
-		
-		    //out.append(str).append("\r\n");
+			System.out.println(outputString);
 		}
 		out.flush();
 		out.close();
-                in.close();
+        in.close();
 	    } 
 	    catch (UnsupportedEncodingException e) 
 	    {	
