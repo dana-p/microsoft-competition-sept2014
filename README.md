@@ -1,9 +1,9 @@
-## Microsoft Competition - September 2014
+# Microsoft Competition - September 2014
 ==============================
 
 Three solutions to problems in the UVic Microsoft Competition 
 
-# First problem: 
+## First problem: 
 Print out lines of code that are unreacheable. NEXT goes to next line, GOTO jumpts to line. First line is considered line number 1. 
 
 Example: 
@@ -27,7 +27,7 @@ Output
 8
 ```
 
-# Second problem: 
+## Second problem: 
 Write if two words are permutations of each other, not including spaces. M and m are considered the same letter.
 
 Example
@@ -63,19 +63,19 @@ Valid Pattern
 Valid Pattern
 ```
 
-# Third Problem:
+## Third Problem:
 Take an email. If the character is not a "regular" character
 1. Replace it with ```"+ INT_LOCATION_IN_STRING UTF8_CODE" ```
 2. Place the weird characters at the end
 
 Therefore, something like:
-Café@Chaud.tôt
-Gets transformed to 
-Caf +3 e9 @Chaud.t +12 f4 t éô
-+3 = location of é
-e9 = UTF8 code for é 
-+12 = location of ô
-f4 = UTF8 code for ô
+```Café@Chaud.tôt``` gets transformed to 
+```Caf +3 e9 @Chaud.t +12 f4 t éô```, where: 
+- +3 = location of é
+- e9 = UTF8 code for é 
+- +12 = location of ô
+- f4 = UTF8 code for ô
+
 aka:
 Caf+3e9@Chaud.t+12f4t éô
 
